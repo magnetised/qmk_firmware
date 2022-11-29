@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [4] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, LSFT(KC_1),     LSFT(KC_2),     LSFT(KC_3),     LSFT(KC_4),     LSFT(KC_5),     KC_TRANSPARENT,                                 KC_TRANSPARENT, LSFT(KC_6),      LSFT(KC_7),     LSFT(KC_8),     LSFT(KC_9),     LSFT(KC_0),     KC_UNDERSCORE,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_LBRC,        GH_ELIXIR_PIPE, KC_RBRC,        KC_BSLASH,      KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_PERCENT,      KC_LBRC,        KC_UNDERSCORE,  KC_RBRC,        LSFT(KC_5),     GH_ELIXIR_PIPE,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_LBRC,        GH_ELIXIR_PIPE, KC_RBRC,        KC_BSLASH,      KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_LBRC,         KC_LCBR,        KC_UNDERSCORE,  KC_RCBR,        KC_RBRC,     GH_ELIXIR_PIPE,
     KC_TILDE,       KC_COLON,       KC_LCBR,        KC_PIPE,        KC_RCBR,        KC_PERCENT,                                                                     KC_UNDERSCORE,   KC_LEFT_PAREN,  KC_EQUAL,       KC_RIGHT_PAREN, KC_COLON,       KC_DOUBLE_QUOTE,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT_PAREN,  KC_TRANSPARENT, KC_RIGHT_PAREN, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_PLUS,         KC_LT,          KC_MINUS,       KC_GT,          KC_QUESTION,    KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                  KC_LCBR,        KC_PIPE,        KC_RCBR,        KC_TRANSPARENT, KC_TRANSPARENT,
