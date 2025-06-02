@@ -28,6 +28,11 @@ enum custom_keycodes {
     GH_CTRL_D,
     GH_ELIXIR_PIPE,
 };
+const uint16_t PROGMEM underscore_combo[] = {KC_F, KC_J, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(underscore_combo, KC_UNDERSCORE),
+};
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
