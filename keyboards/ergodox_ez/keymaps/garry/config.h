@@ -6,4 +6,4 @@
 #define LEADER_TIMEOUT 400
 // https://docs.qmk.fm/#/feature_advanced_keycodes?id=permissive-hold
 #define PERMISSIVE_HOLD
-#define COMBO_COUNT 4
+#define COMBO_COUNT 5

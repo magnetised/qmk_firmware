@@ -33,6 +33,7 @@ const uint16_t PROGMEM underscore_combo[] = {KC_F, KC_J, COMBO_END};
 const uint16_t PROGMEM ctrl_a_combo[] = {KC_A, KC_SCOLON, COMBO_END};
 const uint16_t PROGMEM sq_brackets_combo[] = {KC_G, KC_H, COMBO_END};
 const uint16_t PROGMEM percent_combo[] = {KC_D, KC_K, COMBO_END};
+const uint16_t PROGMEM paren_combo[] = {KC_S, KC_L, COMBO_END};
 
 // COMBO_COUNT defined in ./config.h
 combo_t key_combos[COMBO_COUNT] = {
@@ -40,6 +41,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(ctrl_a_combo, LCTL(KC_A)),
     COMBO(sq_brackets_combo, KC_LBRC),
     COMBO(percent_combo, KC_PERCENT),
+    COMBO(paren_combo, KC_LEFT_PAREN),
 };
 
 // clang-format off
