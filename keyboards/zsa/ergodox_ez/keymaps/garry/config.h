@@ -7,3 +7,5 @@
 // https://docs.qmk.fm/#/feature_advanced_keycodes?id=permissive-hold
 #define PERMISSIVE_HOLD
 #define COMBO_COUNT 5
+#define TAPPING_TERM 200
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD

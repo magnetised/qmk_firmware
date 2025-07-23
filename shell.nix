@@ -6,72 +6,76 @@ in
 {
   # pkgs ? import sources.nixpkgs { },
   pkgs ? import <nixpkgs> { },
-  poetry2nix ? pkgs.callPackage (import sources.poetry2nix) { },
-  avr ? true,
-  arm ? true,
-  teensy ? true,
+# poetry2nix ? pkgs.callPackage (import sources.poetry2nix) { },
+# avr ? true,
+# arm ? true,
+# teensy ? true,
 }:
-with pkgs;
-let
-  avrlibc = pkgsCross.avr.libcCross;
-
-  avr_incflags = [
-    "-isystem ${avrlibc}/avr/include"
-    "-B${avrlibc}/avr/lib/avr5"
-    "-L${avrlibc}/avr/lib/avr5"
-    "-B${avrlibc}/avr/lib/avr35"
-    "-L${avrlibc}/avr/lib/avr35"
-    "-B${avrlibc}/avr/lib/avr51"
-    "-L${avrlibc}/avr/lib/avr51"
-  ];
-
-  # Builds the python env based on nix/pyproject.toml and
-  # nix/poetry.lock Use the "poetry update --lock", "poetry add
-  # --lock" etc. in the nix folder to adjust the contents of those
-  # files if the requirements*.txt files change
-  # pythonEnv = poetry2nix.mkPoetryEnv {
-  #   projectDir = ./util/nix;
-  #   overrides = poetry2nix.overrides.withDefaults (self: super: {
-  #     qmk = super.qmk.overridePythonAttrs(old: {
-  #       # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
-  #       # $PATH and breaks these invocations).
-  #       dontWrapPythonPrograms = true;
-  #     });
-  #   });
-  # };
-in
-mkShell {
+# with pkgs;
+# let
+#   avrlibc = pkgsCross.avr.libcCross;
+#
+#   avr_incflags = [
+#     "-isystem ${avrlibc}/avr/include"
+#     "-B${avrlibc}/avr/lib/avr5"
+#     "-L${avrlibc}/avr/lib/avr5"
+#     "-B${avrlibc}/avr/lib/avr35"
+#     "-L${avrlibc}/avr/lib/avr35"
+#     "-B${avrlibc}/avr/lib/avr51"
+#     "-L${avrlibc}/avr/lib/avr51"
+#   ];
+#
+#   # Builds the python env based on nix/pyproject.toml and
+#   # nix/poetry.lock Use the "poetry update --lock", "poetry add
+#   # --lock" etc. in the nix folder to adjust the contents of those
+#   # files if the requirements*.txt files change
+#   # pythonEnv = poetry2nix.mkPoetryEnv {
+#   #   projectDir = ./util/nix;
+#   #   overrides = poetry2nix.overrides.withDefaults (self: super: {
+#   #     qmk = super.qmk.overridePythonAttrs(old: {
+#   #       # Allow QMK CLI to run "qmk" as a subprocess (the wrapper changes
+#   #       # $PATH and breaks these invocations).
+#   #       dontWrapPythonPrograms = true;
+#   #     });
+#   #   });
+#   # };
+# in
+pkgs.mkShell {
   name = "qmk-firmware";
 
   # buildInputs = [ clang-tools dfu-programmer dfu-util diffutils git pythonEnv poetry niv ]
-  buildInputs =
-    [
-      clang-tools_11
-      dfu-programmer
-      dfu-util
-      diffutils
-      git
-      poetry
-      niv
-    ]
-    ++ lib.optional avr [
-      pkgsCross.avr.buildPackages.binutils
-      # pkgsCross.avr.buildPackages.gcc8
-      pkgsCross.avr.buildPackages.gcc
-      avrlibc
-      avrdude
-    ]
-    ++ lib.optional arm [ gcc-arm-embedded ]
-    ++ lib.optional teensy [ teensy-loader-cli ];
+  # buildInputs =
+  #   with pkgs;
+  #   [
+  #     qmk
+  #     python312Packages.pip
+  #     python312Packages.appdirs
+  #     # clang-tools_11
+  #     # dfu-programmer
+  #     # dfu-util
+  #     # diffutils
+  #     # git
+  #     # poetry
+  #     # niv
+  #   ]
+  # ++ lib.optional avr [
+  #   pkgsCross.avr.buildPackages.binutils
+  #   # pkgsCross.avr.buildPackages.gcc8
+  #   pkgsCross.avr.buildPackages.gcc
+  #   avrlibc
+  #   avrdude
+  # ]
+  # ++ lib.optional arm [ gcc-arm-embedded ]
+  # ++ lib.optional teensy [ teensy-loader-cli ];
 
-  nativeBuildInputs = [
+  nativeBuildInputs = with pkgs; [
     qmk
     python312Packages.pip
     python312Packages.appdirs
   ];
 
-  AVR_CFLAGS = lib.optional avr avr_incflags;
-  AVR_ASFLAGS = lib.optional avr avr_incflags;
+  # AVR_CFLAGS = lib.optional avr avr_incflags;
+  # AVR_ASFLAGS = lib.optional avr avr_incflags;
   shellHook = ''
     # Prevent the avr-gcc wrapper from picking up host GCC flags
     # like -iframework, which is problematic on Darwin

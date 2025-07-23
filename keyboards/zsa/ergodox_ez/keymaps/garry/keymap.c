@@ -29,11 +29,11 @@ enum custom_keycodes {
     GH_ELIXIR_PIPE,
 };
 
-const uint16_t PROGMEM underscore_combo[] = {KC_F, KC_J, COMBO_END};
+const uint16_t PROGMEM underscore_combo[] = {KC_R, KC_U, COMBO_END};
 const uint16_t PROGMEM ctrl_a_combo[] = {KC_A, KC_SEMICOLON, COMBO_END};
-const uint16_t PROGMEM sq_brackets_combo[] = {KC_G, KC_H, COMBO_END};
-const uint16_t PROGMEM percent_combo[] = {KC_D, KC_K, COMBO_END};
-const uint16_t PROGMEM paren_combo[] = {KC_S, KC_L, COMBO_END};
+const uint16_t PROGMEM sq_brackets_combo[] = {KC_T, KC_Y, COMBO_END};
+const uint16_t PROGMEM percent_combo[] = {KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM paren_combo[] = {KC_W, KC_O, COMBO_END};
 
 // COMBO_COUNT defined in ./config.h
 combo_t key_combos[COMBO_COUNT] = {
@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     KC_ESC,         KC_1,         KC_2,    KC_3,    KC_4,         KC_5, KC_DELETE,                                                                   KC_DELETE,              KC_6, KC_7,     KC_8,        KC_9,        KC_0,             KC_MINUS,
     KC_TAB,         KC_Q,         KC_W,    KC_E,    KC_R,         KC_T, KC_BACKSPACE,                                                                   KC_BACKSPACE,              KC_Y, KC_U,     KC_I,        KC_O,        KC_P,             KC_BACKSLASH,
-    KC_GRAVE,       KC_A,         KC_S,    KC_D,    KC_F,         KC_G,                                                                                                      KC_H, KC_J,     KC_K,        KC_L,        KC_SEMICOLON,        KC_QUOTE,
+    KC_GRAVE,       KC_A,         KC_S,    LALT_T(KC_D),    LT(3, KC_F),         LT(4, KC_G),                                                                                                      LT(4, KC_H),   KC_J,     KC_K,        KC_L,        LGUI_T(KC_SEMICOLON),        LCTL_T(KC_QUOTE),
     KC_LSFT,        LCTL_T(KC_Z), KC_X,    KC_C,    KC_V,         KC_B, MT(MOD_G_HYPR, KC_ENTER),                                                      MT(MOD_G_HYPR, KC_ENTER), KC_N, KC_M,     KC_COMMA,    KC_DOT,      RCTL_T(KC_SLASH), KC_RIGHT_SHIFT,
     LT(1,KC_GRAVE), KC_SPC,       QK_LEAD, KC_LALT, LT(3,KC_END),                                                                                                                  KC_EQUAL, KC_LALT,     KC_TRNS,     KC_RCTL,          MO(1),
                                                                                         LT(2, KC_ESC), TG(1),             KC_CAPS_LOCK,   LCTL_T(KC_ESC),
