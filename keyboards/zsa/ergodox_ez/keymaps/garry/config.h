@@ -7,5 +7,6 @@
 // https://docs.qmk.fm/#/feature_advanced_keycodes?id=permissive-hold
 #define PERMISSIVE_HOLD
 #define COMBO_COUNT 5
-#define TAPPING_TERM 200
+// amount of time before a tap becomes a hold, default is 200
+#define TAPPING_TERM 250
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
